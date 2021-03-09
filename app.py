@@ -22,7 +22,6 @@ def home():
 
 @app.route("/questions/<int:id>")
 def the_question(id):
-    start_index = 0
     total_ques = len(satisfaction_survey.questions)
     answer_len = len(responses)
     if id == answer_len:
@@ -33,7 +32,8 @@ def the_question(id):
         else:
             return redirect("/thanks")
     else:
-        flash("Don't even try,go to beggining one first!")
+        if id > total_ques:
+            flash("Don't even try,go to beggining one first!")
         return redirect(f"/questions/{answer_len}")
 
 @app.route("/thanks")
