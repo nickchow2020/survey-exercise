@@ -6,6 +6,8 @@
     {% if finish %}
     <p>You took all the surveys! thank you</p>
     {% else %}
-    <button>Start Survey</button>
+    <form action="/store_session">
+        <input type="submit">
+    </form>
     {% endif %}
 {% endblock %}
